@@ -169,7 +169,6 @@ function showUser(id){
 
 function showUsers(ids){
     let users = []
-    try {
         for(let i = 0 ; i < ids.length ; i++){
             if(isNaN(showUser(ids[i]))){
                 continue
@@ -177,10 +176,6 @@ function showUsers(ids){
             const user = showUser(ids[i])
             users.push(user)
         }
-    }
-    catch (error){
-        console.warn(error)
-    }
     return console.log(users)
 }
 

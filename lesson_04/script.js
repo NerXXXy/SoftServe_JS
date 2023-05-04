@@ -145,5 +145,4 @@ showMonthName(2)
 
 let ids =
     function showUser(id){
-
     }

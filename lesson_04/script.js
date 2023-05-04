@@ -143,6 +143,45 @@ showMonthName(2)
 // // [ {id: 7}, {id: 44}, {id: 22} ]
 //
 
-let ids =
-    function showUser(id){
+class IdError {
+    constructor(message) {
+        this.name = 'IdError';
+        this.message = message;
     }
+}
+
+function showUser(id){
+    try{
+        if(id < 0){
+            throw new IdError(`${id} <-- is lower than 0!`)
+        }
+        else if (isNaN(id)){
+            throw new IdError(`${id} <-- is not a number! Use numbers only!`)
+        }
+        else{
+            return id
+        }
+    }
+    catch (error){
+        console.warn(error)
+    }
+}
+
+function showUsers(ids){
+    let users = []
+    try {
+        for(let i = 0 ; i < ids.length ; i++){
+            if(isNaN(showUser(ids[i]))){
+                continue
+            }
+            const user = showUser(ids[i])
+            users.push(user)
+        }
+    }
+    catch (error){
+        console.warn(error)
+    }
+    return console.log(users)
+}
+
+showUsers([5,3,-6,7,'a']);

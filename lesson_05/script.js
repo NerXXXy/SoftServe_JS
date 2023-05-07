@@ -156,16 +156,106 @@ student.showCourse()
 // - поле, яке зберігає кількість чорнила в маркері (у відсотках);
 // - метод друку (метод приймає рядок і виводить текст відповідним кольором;
 // текст виводиться до тих пір, поки в маркері є чорнило; один не пробіловий символ – це 0,5% чорнила в маркері).
-// В. Реалізувати клас, що описує маркер, що заправляється, успадкувавши його від простого маркера і додавши метод для заправки маркера. Продемонструвати роботу написаних методів
+// В. Реалізувати клас, що описує маркер, що заправляється,
+// успадкувавши його від простого маркера і додавши метод для заправки маркера.
+// Продемонструвати роботу написаних методів
+
+class Marker{
+    constructor(color,ink) {
+        this.color = color;
+        this.ink = ink;
+    }
+    markerWrite(text){
+        let writtenText ='';
+        for(let i = 0; i< text.length; i++){
+            if(this.ink < 0){
+                break;
+            }
+            else if(text[i] !== ' '){
+                writtenText += text[i]
+                this.ink = this.ink - 0.5;
+            }
+            else {
+                writtenText += text[i]
+            }
+        }
+        console.log(`${writtenText} /// Color: ${this.color}`)
+    }
+}
+class RefillableMarker extends Marker{
+    refill(ink){
+        this.ink = Math.min(100, this.ink + ink);
+}
+
+}
+let marker = new Marker('red',10)
+let refillableMarker = new RefillableMarker('red',10)
+marker.markerWrite('Hello world12345678987654321!')
+refillableMarker.markerWrite('Hello world12345678987654321!')
+refillableMarker.refill(20)
+refillableMarker.markerWrite('Hello world12345678987654321!')
 
 // 5.
-// Створіть клас Worker який буде мати конструктор, який приймає наступні властивості: fullName (ім’я і прізвище), dayRate (ставка за день роботи), workingDays (кількість відпрацьованих днів).
-// 1) клас повинен мати метод showSalary(), який буде виводити зарплату працівника. Зарплата - це добуток ставки dayRate на кількість відпрацьованих днів workingDays.
-// 2) додати приватне поле experience і присвоїти йому значення 1.2 і використовувати його як додатковий множник при визначенні зарплати – створити метод showSalaryWithExperience(). Вивести значення зарплати з цим коефіцієнтом.
+// Створіть клас Worker який буде мати конструктор, який приймає наступні властивості:
+// fullName (ім’я і прізвище),
+// dayRate (ставка за день роботи),
+// workingDays (кількість відпрацьованих днів).
+// 1) клас повинен мати метод showSalary(), який буде виводити зарплату працівника.
+// Зарплата - це добуток ставки dayRate на кількість відпрацьованих днів workingDays.
+// 2) додати приватне поле experience і присвоїти йому значення 1.2 і використовувати його як додатковий множник при визначенні зарплати
+// – створити метод showSalaryWithExperience(). Вивести значення зарплати з цим коефіцієнтом.
 // 3) додати гетери і сетери для поля experience. Встановити значення experience = 1.5 і вивести його на екран.
 // 4) Вивести значення зарплати з новим experience.
-// 5) Створити кілька екземплярів класу (працівників) з різними зарплатами, як показано в прикладі нижче. Посортувати зарплату працівників із найбільшим experience по зростанню і вивести результат в форматі:   worker_fullName: salary_value
+// 5) Створити кілька екземплярів класу (працівників) з різними зарплатами, як показано в прикладі нижче.
+// Посортувати зарплату працівників із найбільшим experience по зростанню і вивести результат в форматі:
+// worker_fullName: salary_value
 // 6) Реалізувати динамічне сортування для будь-кої кількості працівників-екземплярів класу Worker.
+
+class Worker {
+    static allWorkers = []
+    constructor(name,surname,dayRate,workingDays) {
+        this.fullName = `${name} ${surname}`;
+        this.dayRate = dayRate;
+        this.workingDays = workingDays;
+        this._experience = 1.2;
+        Worker.allWorkers.push(this)
+    }
+    showSallary(){
+        let salary = this.dayRate * this.workingDays
+        console.log(`${this.fullName} salary: ${salary}`)
+        return salary
+    }
+    showSallaryWithExperience(){
+        let salary = this.dayRate * this.workingDays * this.experience
+        console.log(`${this.fullName} salary: ${salary}`)
+        return salary
+    }
+    get experience(){
+        return this._experience;
+    }
+    set experience(value){
+        this._experience = value;
+    }
+
+    static sortWorkersBySallary(){
+        Worker.allWorkers.sort((a,b) => a.showSallaryWithExperience() - b.showSallaryWithExperience())
+    }
+}
+
+const worker1 = new Worker('Volodymyr','Feduniv',100,20)
+const worker2 = new Worker('Max','Pupko',80,15)
+const worker3 = new Worker('Sergiy','Jmenya',50,30)
+
+worker1.showSallary()
+worker1.showSallaryWithExperience()
+worker1.experience = 2;
+worker1.showSallaryWithExperience()
+console.log('_________')
+Worker.sortWorkersBySallary()
+
+
+
+
 //     Example usage:
 //     let worker1 = new Worker("John Johnson", 20, 23);
 // console.log(worker1.fullName);

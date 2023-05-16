@@ -1,0 +1,28 @@
+.bigHeader{
+    background: aquamarine;
+    color: black;
+    font-weight: bold;
+    font-size: 50px;
+}
+.bold{
+    font-weight: bold;
+}
+.red{
+    color: red;
+}
+.underline{
+    text-decoration: underline;
+}
+.cursive{
+    font-style: italic;
+}
+.updateList{
+    list-style-type: none;
+    display: flex;
+}
+.updateLi{
+    display: inline;
+}
+.hidden{
+    visibility: hidden;
+}

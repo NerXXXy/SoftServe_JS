@@ -86,7 +86,7 @@ function upgradeAutoClickCD() {
         counter.textContent = `Your points: ${points}`;
         autoClickCD = autoClickCD - 1000;
         autoClickCDUpgradeCost = autoClickCDUpgradeCost * 2;
-        autoClickCDText.textContent = `AutoClick CD : ${autoClickCD * 0.001} seconds.`;
+        autoClickCDText.textContent = `CD : ${autoClickCD * 0.001} seconds.`;
         autoClickCDCost.textContent = `${autoClickCDUpgradeCost} points`;
         saveProgress(); // Зберігаємо прогрес після оновлення часу автокліка
     } else {

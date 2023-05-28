@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>Clickr</title>
-        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
-        <link rel="stylesheet" href="index.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <title>Clickr</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+</head>
 
-    <body>
-        <main>
-            <header class="header">Clicker Game</header>
-        <section class="game">
-            <div id="display"></div>
-            <div class="hint">Click to earn points</div>
-            <button id="button">Click</button>
-            <div id="counter"></div>
-        </section>
-          <section class="upgrades">
-              <div class="card" id="powerStatus">
-                  <div class="upgradeName">Click</div>
-                  <p id="powerStatusText"></p>
-                  <button class="upgradeButton" id="clickPower">Upgrade</button>
-              </div>
-              <div class="card" id="autoClickStatus">
-                  <div class="upgradeName">Auto Click</div>
-                  <p id="autoClickStatusText"></p>
-                  <button class="upgradeButton" id="autoClicks">Upgrade</button>
-              </div>
-              <div class="card" id="autoClickCDStatus">
-                  <div class="upgradeName">Auto Click CD</div>
-                  <p id="autoClickCDStatusText"></p>
-                  <button  class="upgradeButton" id="autoClicksCD">Upgrade</button>
-              </div>
-          </section>
+<body>
+<main>
+    <header class="header">Clicker Game</header>
+    <section class="game">
+        <div id="display"></div>
+        <div class="hint">Click to earn points</div>
+        <button id="button">Click</button>
+        <div id="counter"></div>
+    </section>
+    <section class="upgrades">
+        <div class="card_wrapper">
+            <div class="card" id="powerStatus">
+                <div class="upgradeName">Click</div>
+                <p id="powerStatusText"></p>
+                <button class="upgradeButton" id="clickPower">Upgrade</button>
+            </div>
+            <div class="upgradeDesc" id="clickCost"></div>
+        </div>
+        <div class="card_wrapper">
+            <div class="card" id="autoClickStatus">
+                <div class="upgradeName">Auto Click</div>
+                <p id="autoClickStatusText"></p>
+                <button class="upgradeButton" id="autoClicks">Upgrade</button>
+            </div>
+            <div class="upgradeDesc" id="autoClickCost"></div>
+        </div>
+        <div class="card_wrapper">
+            <div class="card" id="autoClickCDStatus">
+                <div class="upgradeName">Auto Click CD</div>
+                <p id="autoClickCDStatusText"></p>
+                <button class="upgradeButton" id="autoClicksCD">Upgrade</button>
+            </div>
+            <div class="upgradeDesc" id="autoClickCDCost"></div>
+        </div>
 
-            <audio id="buttonSound" src="sounds/pointsClick.mp3"></audio>
-            <audio id="upgradeSound" src="sounds/upgradeClick.mp3"></audio>
 
-        </main>
+    </section>
 
-        <script src="index.js"></script>
-    </body>
+    <audio id="buttonSound" src="sounds/pointsClick.mp3"></audio>
+    <audio id="upgradeSound" src="sounds/upgradeClick.mp3"></audio>
+
+</main>
+
+<script src="index.js"></script>
+</body>
 </html>

@@ -15,6 +15,7 @@ const button = document.querySelector('#button');
 const counter = document.querySelector('#counter');
 button.onclick = play;
 
+
 const clickPowerButton = document.querySelector('#clickPower')
 const powerStatusButton = document.querySelector('#powerStatus')
 const powerStatusText = document.querySelector('#powerStatusText')
@@ -30,9 +31,10 @@ const autoClickCDButton = document.querySelector('#autoClicksCD')
 const autoClickCDText = document.querySelector('#autoClickCDStatusText')
 autoClickCDButton.onclick = upgradeAutoClickCD;
 
-powerStatusText.textContent = `Power : ${clickPower}. Upgrade :${nextPowerUpgradeCost} points`
-autoClickText.textContent = `Power : ${autoClickPower}. Upgrade : ${autoClickPowerUpgradeCost} points}`
-autoClickCDText.textContent = `AutoClick CD : ${autoClickCD * 0.001} seconds. Upgrade : ${autoClickCDUpgradeCost}`
+powerStatusText.textContent = `Power : ${clickPower}.`
+autoClickText.textContent = `Power : ${autoClickPower}.`
+autoClickCDText.textContent = `CD : ${autoClickCD * 0.001} seconds.`
+
 
 function play() {
     button.onclick = () => counter.textContent = `Your points: ${points = points + clickPower}`;
@@ -46,7 +48,8 @@ function upgradePower() {
         clickPower += 1;
         nextPowerUpgradeCost = nextPowerUpgradeCost * 3 + clickPower;
         clickPowerLVL = clickPowerLVL + 1;
-        powerStatusText.textContent = `Power : ${clickPower}.Upgrade : ${nextPowerUpgradeCost} points`
+        powerStatusText.textContent = `Power : ${clickPower}`
+        clickCost.textContent = `${nextPowerUpgradeCost} points`
     } else {
         alert('Not enough points!')
     }
@@ -58,7 +61,8 @@ function upgradeAutoClick() {
         counter.textContent = `Your points: ${points}`
         autoClickPower = autoClickPower + 1;
         autoClickPowerUpgradeCost = autoClickPowerUpgradeCost + 100 * 2;
-        autoClickText.textContent = `Power : ${autoClickPower}.Upgrade : ${autoClickPowerUpgradeCost} points`
+        autoClickText.textContent = `Power : ${autoClickPower}`
+        autoClickCost.textContent = `${autoClickPowerUpgradeCost} points`;
     } else {
         alert('Not enough points!')
     }
@@ -70,7 +74,8 @@ function upgradeAutoClickCD() {
         counter.textContent = `Your points: ${points}`
         autoClickCD = autoClickCD - 1000;
         autoClickCDUpgradeCost = autoClickCDUpgradeCost * 2;
-        autoClickCDText.textContent = `AutoClick CD : ${autoClickCD * 0.001} seconds. Upgrade : ${autoClickCDUpgradeCost}`
+        autoClickCDText.textContent = `AutoClick CD : ${autoClickCD * 0.001} seconds.`;
+        autoClickCDCost.textContent = `${autoClickCDUpgradeCost} points`
     } else {
         alert('Not enough points!')
     }
@@ -97,6 +102,16 @@ upgradeButton.addEventListener('click', clickSound)
 function clickSound() {
     buttonSound.play();
     }
+
+const clickCost = document.querySelector('#clickCost')
+const autoClickCost = document.querySelector('#autoClickCost')
+const autoClickCDCost = document.querySelector('#autoClickCDCost')
+clickCost.textContent = `${nextPowerUpgradeCost} points`
+autoClickCost.textContent = `${autoClickPowerUpgradeCost} points`
+autoClickCDCost.textContent = `${autoClickCDUpgradeCost} points`
+
+
+
 
 
 

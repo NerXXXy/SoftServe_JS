@@ -215,3 +215,14 @@ main {
     -3px 3px var(--shadow-color),
     -6px 0 var(--shadow-color);
 }
+
+.upgradeDesc{
+    font-size: 14px
+}
+.card_wrapper{
+    display: flex;
+    height: 280px;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}

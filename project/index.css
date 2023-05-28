@@ -20,24 +20,37 @@ main {
     justify-content: space-around;
     align-items: center;
 }
-.game{
-    border: 2px solid red;
+
+.game {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.upgrades{
-    border: 2px solid blue;
+
+.upgrades {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
+    column-gap: 30px;
+    height: 200px;
 }
-#powerStatus{
+
+#powerStatus {
     display: flex;
 }
-#powerStatusText{
+
+#powerStatusText {
     font-size: 14px;
 }
+
+#autoClickStatusText {
+    font-size: 14px;
+}
+
+#autoClickCDStatusText {
+    font-size: 14px;
+}
+
 #button {
     --color: firebrick;
     --border-color: firebrick;
@@ -59,48 +72,146 @@ main {
     font-weight: bold;
     background-color: var(--color);
     box-shadow: 0 -3px var(--color),
-                3px 0 var(--color),
-                0 3px var(--color),
-                -3px 0 var(--color),
-                0 -6px var(--border-color),
-                3px -3px var(--border-color),
-                6px 0 var(--border-color),
-                0 6px var(--border-color),
-                -3px 3px var(--border-color),
-                -6px 0 var(--border-color),
-                -3px -3px var(--border-color),
-                3px 3px var(--border-color),
-                0 9px var(--shadow-color),
-                3px 6px var(--shadow-color),
-                6px 3px var(--shadow-color),
-                0 9px var(--shadow-color),
-                -3px 6px var(--shadow-color),
-                -6px 3px var(--shadow-color);
+    3px 0 var(--color),
+    0 3px var(--color),
+    -3px 0 var(--color),
+    0 -6px var(--border-color),
+    3px -3px var(--border-color),
+    6px 0 var(--border-color),
+    0 6px var(--border-color),
+    -3px 3px var(--border-color),
+    -6px 0 var(--border-color),
+    -3px -3px var(--border-color),
+    3px 3px var(--border-color),
+    0 9px var(--shadow-color),
+    3px 6px var(--shadow-color),
+    6px 3px var(--shadow-color),
+    0 9px var(--shadow-color),
+    -3px 6px var(--shadow-color),
+    -6px 3px var(--shadow-color);
 }
 
 #button:active {
     top: 6px;
-	box-shadow: 0 -3px var(--color),
-                3px 0 var(--color),
-                0 3px var(--color),
-                -3px 0 var(--color),
-                0 -6px var(--border-color),
-                3px -3px var(--border-color),
-                6px 0 var(--border-color),
-                0 6px var(--border-color),
-                -3px 3px var(--border-color),
-                -6px 0 var(--border-color),
-                -3px -3px var(--border-color),
-                3px 3px var(--border-color),
-                0 6px var(--shadow-color),
-                3px 3px var(--shadow-color),
-                6px 0 var(--shadow-color),
-                0 6px var(--shadow-color),
-                -3px 3px var(--shadow-color),
-                -6px 0 var(--shadow-color);
+    box-shadow: 0 -3px var(--color),
+    3px 0 var(--color),
+    0 3px var(--color),
+    -3px 0 var(--color),
+    0 -6px var(--border-color),
+    3px -3px var(--border-color),
+    6px 0 var(--border-color),
+    0 6px var(--border-color),
+    -3px 3px var(--border-color),
+    -6px 0 var(--border-color),
+    -3px -3px var(--border-color),
+    3px 3px var(--border-color),
+    0 6px var(--shadow-color),
+    3px 3px var(--shadow-color),
+    6px 0 var(--shadow-color),
+    0 6px var(--shadow-color),
+    -3px 3px var(--shadow-color),
+    -6px 0 var(--shadow-color);
 }
 
 #display,
 #counter {
     height: 32px;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --color: #525151;
+    --border-color: #979595;
+    --shadow-color: rgb(86 80 80);
+    position: relative;
+    font-size: 20px;
+    box-sizing: border-box;
+    width: 300px;
+    height: 200px;
+    row-gap: 10px;
+    border: none;
+    background-size: cover;
+    outline: none;
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    font-weight: bold;
+    background-color: var(--color);
+    box-shadow: 0 -3px var(--color),
+    3px 0 var(--color),
+    0 3px var(--color),
+    -3px 0 var(--color),
+    0 -6px var(--border-color),
+    3px -3px var(--border-color),
+    6px 0 var(--border-color),
+    0 6px var(--border-color),
+    -3px 3px var(--border-color),
+    -6px 0 var(--border-color),
+    -3px -3px var(--border-color),
+    3px 3px var(--border-color),
+    0 9px var(--shadow-color),
+    3px 6px var(--shadow-color),
+    6px 3px var(--shadow-color),
+    0 9px var(--shadow-color),
+    -3px 6px var(--shadow-color),
+    -6px 3px var(--shadow-color);
+    justify-content: space-around;
+}
+
+.upgradeButton {
+    --color: firebrick;
+    --border-color: firebrick;
+    --shadow-color: rgb(112, 20, 20);
+    position: relative;
+    font-size: 20px;
+    width: 80%;
+    border: none;
+    background-size: cover;
+    cursor: pointer;
+    outline: none;
+    color: white;
+    font-family: 'Press Start 2P', monospace;
+    font-weight: bold;
+    background-color: var(--color);
+    box-shadow: 0 -3px var(--color),
+    3px 0 var(--color),
+    0 3px var(--color),
+    -3px 0 var(--color),
+    0 -6px var(--border-color),
+    3px -3px var(--border-color),
+    6px 0 var(--border-color),
+    0 6px var(--border-color),
+    -3px 3px var(--border-color),
+    -6px 0 var(--border-color),
+    -3px -3px var(--border-color),
+    3px 3px var(--border-color),
+    0 9px var(--shadow-color),
+    3px 6px var(--shadow-color),
+    6px 3px var(--shadow-color),
+    0 9px var(--shadow-color),
+    -3px 6px var(--shadow-color),
+    -6px 3px var(--shadow-color);
+}
+
+.upgradeButton:active {
+    top: 6px;
+    box-shadow: 0 -3px var(--color),
+    3px 0 var(--color),
+    0 3px var(--color),
+    -3px 0 var(--color),
+    0 -6px var(--border-color),
+    3px -3px var(--border-color),
+    6px 0 var(--border-color),
+    0 6px var(--border-color),
+    -3px 3px var(--border-color),
+    -6px 0 var(--border-color),
+    -3px -3px var(--border-color),
+    3px 3px var(--border-color),
+    0 6px var(--shadow-color),
+    3px 3px var(--shadow-color),
+    6px 0 var(--shadow-color),
+    0 6px var(--shadow-color),
+    -3px 3px var(--shadow-color),
+    -6px 0 var(--shadow-color);
 }

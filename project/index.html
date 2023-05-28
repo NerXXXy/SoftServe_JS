@@ -17,16 +17,25 @@
             <div id="counter"></div>
         </section>
           <section class="upgrades">
-              <div id="powerStatus">
+              <div class="card" id="powerStatus">
+                  <div class="upgradeName">Click</div>
                   <p id="powerStatusText"></p>
-                  <button id="clickPower">^^^</button>
+                  <button class="upgradeButton" id="clickPower">Upgrade</button>
               </div>
-              <div id="autoClickStatus">
+              <div class="card" id="autoClickStatus">
+                  <div class="upgradeName">Auto Click</div>
                   <p id="autoClickStatusText"></p>
-                  <button id="autoClicks">^^^</button>
+                  <button class="upgradeButton" id="autoClicks">Upgrade</button>
+              </div>
+              <div class="card" id="autoClickCDStatus">
+                  <div class="upgradeName">Auto Click CD</div>
+                  <p id="autoClickCDStatusText"></p>
+                  <button  class="upgradeButton" id="autoClicksCD">Upgrade</button>
               </div>
           </section>
 
+            <audio id="buttonSound" src="sounds/pointsClick.mp3"></audio>
+            <audio id="upgradeSound" src="sounds/upgradeClick.mp3"></audio>
 
         </main>
 

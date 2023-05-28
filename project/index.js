@@ -47,7 +47,7 @@ function play() {
     button.onclick = () => {
         points = points + clickPower;
         counter.textContent = `Your points: ${points}`;
-        saveProgress(); // Зберігаємо прогрес після кожного натискання кнопки
+        saveProgress();
     };
 }
 

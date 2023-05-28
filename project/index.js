@@ -81,11 +81,6 @@ function upgradeAutoClickCD() {
     }
 }
 
-
-// function autoClick(){
-//
-// }
-
 function autoClick() {
     setInterval(() => {
         points = points + autoClickPower;
